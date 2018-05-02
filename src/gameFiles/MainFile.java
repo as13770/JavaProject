@@ -4,14 +4,17 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class MainFile extends Application{
@@ -49,22 +52,110 @@ public class MainFile extends Application{
 		names.getChildren().addAll(name1, name2, ok, clear);
 		Scene namescene = new Scene(names, 250, 100);
 		nameScreen.setScene(namescene);
-		nameScreen.show();
+	//	nameScreen.show();
 		
 		Stage rulesScreen = new Stage();
 
 		//batter and pitcher pictures
 		ImageView batter = new ImageView("https://sineilleifer.files.wordpress.com/2013/01/1045.jpg?w=960");
-		batter.setFitWidth(60);
-		batter.setFitHeight(80);
-		batter.setX(100);
-		batter.setY(120);
+		batter.setFitWidth(140);
+		batter.setFitHeight(180);
+		batter.setX(0);
+		batter.setY(25);
 		ImageView pitcher = new ImageView("http://www.thecompletepitcher.com/assets/images/blog/4.jpg");
-		pitcher.setFitWidth(60);
-		pitcher.setFitHeight(80);
-		pitcher.setX(200);
-		pitcher.setY(20);
-
+		pitcher.setFitWidth(140);
+		pitcher.setFitHeight(180);
+		pitcher.setX(260);
+		pitcher.setY(25);
+		
+		//batter score
+		Label bat = new Label();
+		bat.setText("batter");
+		bat.setLayoutX(60);
+		bat.setFont(Font.font(18));
+		bat.setMaxWidth(90);
+		
+		//pitcher score
+		Label pitc = new Label();
+		pitc.setText("pitcher");
+		pitc.setLayoutX(270);
+		pitc.setFont(Font.font(18));
+		pitc.setMaxWidth(90);
+		
+		Rectangle scorebox = new Rectangle();
+		scorebox.setWidth(120);
+		scorebox.setHeight(25);
+		scorebox.setX(140);
+		scorebox.setY(0);
+		scorebox.setFill(Color.WHITE);
+		scorebox.setStroke(Color.BLACK);
+		Line splitter = new Line(200, 0, 200, 25);
+		
+		//scores
+		Label score1 = new Label();
+		score1.setText("2");
+		score1.setLayoutX(165);
+		score1.setFont(Font.font(18));
+		Label score2 = new Label();
+		score2.setText("3");
+		score2.setLayoutX(225);
+		score2.setFont(Font.font(18));
+		
+		//out icons
+		Circle out1a = new Circle();
+		out1a.setRadius(6);
+		out1a.setStroke(Color.BLACK);
+		out1a.setFill(Color.DARKRED);
+		out1a.setCenterX(180);
+		out1a.setCenterY(40);
+		Circle out2a = new Circle();
+		out2a.setRadius(6);
+		out2a.setStroke(Color.BLACK);
+		out2a.setFill(Color.DARKRED);
+		out2a.setCenterX(220);
+		out2a.setCenterY(40);
+		Circle out1b = new Circle();
+		out1b.setRadius(6);
+		out1b.setStroke(Color.BLACK);
+		out1b.setFill(Color.RED);
+		out1b.setCenterX(180);
+		out1b.setCenterY(40);
+		out1b.setVisible(false);
+		Circle out2b = new Circle();
+		out2b.setRadius(6);
+		out2b.setStroke(Color.BLACK);
+		out2b.setFill(Color.RED);
+		out2b.setCenterX(220);
+		out2b.setCenterY(40);
+		out2b.setVisible(false);
+		
+		Circle strike1a = new Circle();
+		strike1a.setRadius(6);
+		strike1a.setStroke(Color.BLACK);
+		strike1a.setFill(Color.DARKGOLDENROD);
+		strike1a.setCenterX(180);
+		strike1a.setCenterY(100);
+		Circle strike2a = new Circle();
+		strike2a.setRadius(6);
+		strike2a.setStroke(Color.BLACK);
+		strike2a.setFill(Color.DARKGOLDENROD);
+		strike2a.setCenterX(220);
+		strike2a.setCenterY(100);
+		Circle strike1b = new Circle();
+		strike1b.setRadius(6);
+		strike1b.setStroke(Color.BLACK);
+		strike1b.setFill(Color.YELLOW);
+		strike1b.setCenterX(180);
+		strike1b.setCenterY(100);
+		strike1b.setVisible(false);
+		Circle strike2b = new Circle();
+		strike2b.setRadius(6);
+		strike2b.setStroke(Color.BLACK);
+		strike2b.setFill(Color.YELLOW);
+		strike2b.setCenterX(220);
+		strike2b.setCenterY(100);
+		strike2b.setVisible(true);
+		
 		Line screenseperator = new Line(0, 300, 400, 300);
 		screenseperator.setStrokeWidth(3);
 
@@ -110,14 +201,6 @@ public class MainFile extends Application{
 		atBat.setY(0);
 		atBat.setFill(Color.LIGHTGREY);
 		
-		//Scoreboard
-		Rectangle Score = new Rectangle(150, 40);
-		Score.setY(300);
-		Score.setX(250);
-		Score.setStroke(Color.BLACK);
-		Score.setFill(Color.WHITE);
-		Line split = new Line(325, 300, 325, 340);
-		split.setStrokeWidth(2);
 		
 		//reset and rules buttons
 		Button reset = new Button();
@@ -137,7 +220,8 @@ public class MainFile extends Application{
 
 		Pane pane1 = new Pane();
 		pane1.getChildren().addAll(field, atBat, rules, reset, batter, pitcher, screenseperator, line1, line2,
-				line3, line4, firstBase, secondBase, thirdBase, homePlate, homePlate2, Score, split);
+				line3, line4, firstBase, secondBase, thirdBase, homePlate, homePlate2, bat, pitc, scorebox, splitter, score1, 
+				score2, out1a, out2a, out1b, out2b, strike1a, strike2a, strike1b, strike2b);
 
 		Scene Everything = new Scene(pane1, 400, 600);
 		
@@ -145,7 +229,7 @@ public class MainFile extends Application{
 
 		primaryStage.setTitle("baseball");
 		primaryStage.setScene(Everything);
-	//	primaryStage.show();
+		primaryStage.show();
 
 	}
 
