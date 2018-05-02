@@ -82,6 +82,13 @@ public class MainFile extends Application{
 		pitc.setFont(Font.font(18));
 		pitc.setMaxWidth(90);
 		
+		//score label
+		Label scorelabel = new Label();
+		scorelabel.setText("Score");
+		scorelabel.setLayoutX(185);
+		scorelabel.setPrefWidth(40);
+		scorelabel.setLayoutY(26);
+		
 		Rectangle scorebox = new Rectangle();
 		scorebox.setWidth(120);
 		scorebox.setHeight(25);
@@ -107,54 +114,81 @@ public class MainFile extends Application{
 		out1a.setStroke(Color.BLACK);
 		out1a.setFill(Color.DARKRED);
 		out1a.setCenterX(180);
-		out1a.setCenterY(40);
+		out1a.setCenterY(60);
 		Circle out2a = new Circle();
 		out2a.setRadius(6);
 		out2a.setStroke(Color.BLACK);
 		out2a.setFill(Color.DARKRED);
 		out2a.setCenterX(220);
-		out2a.setCenterY(40);
-		Circle out1b = new Circle();
-		out1b.setRadius(6);
-		out1b.setStroke(Color.BLACK);
-		out1b.setFill(Color.RED);
-		out1b.setCenterX(180);
-		out1b.setCenterY(40);
-		out1b.setVisible(false);
-		Circle out2b = new Circle();
-		out2b.setRadius(6);
-		out2b.setStroke(Color.BLACK);
-		out2b.setFill(Color.RED);
-		out2b.setCenterX(220);
-		out2b.setCenterY(40);
-		out2b.setVisible(false);
+		out2a.setCenterY(60);
 		
+		Label outs = new Label();
+		outs.setText("Outs");
+		outs.setLayoutX(187);
+		outs.setPrefWidth(40);
+		outs.setLayoutY(70);
+
+		//strike icons
 		Circle strike1a = new Circle();
 		strike1a.setRadius(6);
 		strike1a.setStroke(Color.BLACK);
 		strike1a.setFill(Color.DARKGOLDENROD);
 		strike1a.setCenterX(180);
-		strike1a.setCenterY(100);
+		strike1a.setCenterY(120);
 		Circle strike2a = new Circle();
 		strike2a.setRadius(6);
 		strike2a.setStroke(Color.BLACK);
 		strike2a.setFill(Color.DARKGOLDENROD);
 		strike2a.setCenterX(220);
-		strike2a.setCenterY(100);
-		Circle strike1b = new Circle();
-		strike1b.setRadius(6);
-		strike1b.setStroke(Color.BLACK);
-		strike1b.setFill(Color.YELLOW);
-		strike1b.setCenterX(180);
-		strike1b.setCenterY(100);
-		strike1b.setVisible(false);
-		Circle strike2b = new Circle();
-		strike2b.setRadius(6);
-		strike2b.setStroke(Color.BLACK);
-		strike2b.setFill(Color.YELLOW);
-		strike2b.setCenterX(220);
-		strike2b.setCenterY(100);
-		strike2b.setVisible(true);
+		strike2a.setCenterY(120);
+		
+		Label strikes = new Label();
+		strikes.setText("Strikes");
+		strikes.setLayoutX(183);
+		strikes.setPrefWidth(40);
+		strikes.setLayoutY(127);
+		
+		//ball icons
+		Circle ball1a = new Circle();
+		ball1a.setRadius(6);
+		ball1a.setStroke(Color.BLACK);
+		ball1a.setFill(Color.DARKBLUE);
+		ball1a.setCenterX(160);
+		ball1a.setCenterY(180);
+		Circle ball2a = new Circle();
+		ball2a.setRadius(6);
+		ball2a.setStroke(Color.BLACK);
+		ball2a.setFill(Color.DARKBLUE);
+		ball2a.setCenterX(200);
+		ball2a.setCenterY(180);
+		Circle ball3a = new Circle();
+		ball3a.setRadius(6);
+		ball3a.setStroke(Color.BLACK);
+		ball3a.setFill(Color.DARKBLUE);
+		ball3a.setCenterX(240);
+		ball3a.setCenterY(180);
+		
+		Label balls = new Label();
+		balls.setText("Balls");
+		balls.setLayoutX(187);
+		balls.setPrefWidth(40);
+		balls.setLayoutY(190);
+		
+		Label aOption = new Label();
+		aOption.setText("A: Aggresive");
+		aOption.setLayoutY(220);
+		aOption.setFont(Font.font(16));
+		Label bOption = new Label();
+		bOption.setText("B: Defensive");
+		Label cOption = new Label();
+		cOption.setText("C: Wacky");
+		Label dOption = new Label();
+		dOption.setText("7: Fastball");
+		Label eOption = new Label();
+		eOption.setText("8: Curveball");
+		Label fOption = new Label();
+		fOption.setText("9: Knuckleball");
+		
 		
 		Line screenseperator = new Line(0, 300, 400, 300);
 		screenseperator.setStrokeWidth(3);
@@ -221,7 +255,8 @@ public class MainFile extends Application{
 		Pane pane1 = new Pane();
 		pane1.getChildren().addAll(field, atBat, rules, reset, batter, pitcher, screenseperator, line1, line2,
 				line3, line4, firstBase, secondBase, thirdBase, homePlate, homePlate2, bat, pitc, scorebox, splitter, score1, 
-				score2, out1a, out2a, out1b, out2b, strike1a, strike2a, strike1b, strike2b);
+				score2, out1a, out2a, strike1a, strike2a, ball1a, ball2a, ball3a, scorelabel, outs, strikes, balls, aOption, bOption,
+				cOption, dOption, eOption, fOption);
 
 		Scene Everything = new Scene(pane1, 400, 600);
 		
